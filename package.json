@@ -1,0 +1,23 @@
+{
+  "name": "web3_tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Flyingmn/Web3_tutorial#readme",
+  "bugs": {
+    "url": "https://github.com/Flyingmn/Web3_tutorial/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Flyingmn/Web3_tutorial.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "hardhat": "^3.0.9"
+  }
+}
