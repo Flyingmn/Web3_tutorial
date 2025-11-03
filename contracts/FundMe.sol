@@ -27,7 +27,7 @@ contract FundMe {
     uint256 internal limit_time;
 
     //美元汇率
-    int256 public price;
+    // int256 public price;
 
     AggregatorV3Interface private priceFeed;
 
@@ -43,7 +43,7 @@ contract FundMe {
         );
         deployTime = block.timestamp;
         limit_time = _limit_time;
-        price = getLatestPrice();
+        // price = getLatestPrice();
     }
 
     function fund() external payable {
@@ -75,7 +75,7 @@ contract FundMe {
 
     //将筹资转为美元
     function transTUsd(uint256 _fund) public view returns (uint256) {
-        return (_fund * uint256(price)) / 10 ** 8;
+        return (_fund * uint256(getLatestPrice())) / 10 ** 8;
     }
 
     //提现
