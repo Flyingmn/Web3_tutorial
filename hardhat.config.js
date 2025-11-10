@@ -11,12 +11,16 @@ module.exports = {
   networks: {
     sepolia: {
       url: SEPOLIA_URL,
-      accounts: [PRIMARY_KEY]
+      accounts: [PRIMARY_KEY],
+      chainId: 11155111
     }
   },
   etherscan: {
     // Your API key for Etherscan
     // Obtain one at https://etherscan.io/
-    apiKey: ETHERSCAN_API_KEY,
+    // apiKey: {
+    //   sepolia: ETHERSCAN_API_KEY,
+    // }
+    apiKey: ETHERSCAN_API_KEY
   },
 };
