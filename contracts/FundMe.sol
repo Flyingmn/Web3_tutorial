@@ -18,7 +18,7 @@ contract FundMe {
     uint256 public minimumUSD = 1 * 10 ** 18;
 
     //目标募集资金
-    uint256 constant TARGET = 10 * 10 ** 18;
+    uint256 constant TARGET = 5 * 10 ** 18;
 
     //部署时间
     uint256 public deployTime;

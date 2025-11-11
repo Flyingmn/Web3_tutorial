@@ -3,6 +3,7 @@ require("@chainlink/env-enc").config();
 
 const SEPOLIA_URL = process.env.SEPOLIA_URL
 const PRIMARY_KEY = process.env.PRIMARY_KEY
+const PRIMARY_KEY_1 = process.env.PRIMARY_KEY_1
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY
 
 /** @type import('hardhat/config').HardhatUserConfig */
@@ -11,7 +12,7 @@ module.exports = {
   networks: {
     sepolia: {
       url: SEPOLIA_URL,
-      accounts: [PRIMARY_KEY],
+      accounts: [PRIMARY_KEY, PRIMARY_KEY_1],
       chainId: 11155111
     }
   },
