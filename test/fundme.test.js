@@ -1,16 +1,25 @@
-const FUND_ME_LIMIT_TIME = 60 * 5;
 const { assert } = require("chai");
+const { deployments, ethers, getNamedAccounts } = require("hardhat");
+
+const FUND_ME_LIMIT_TIME = 60 * 5
 
 describe("test fundMe contract", async function () {
-    it("test if the owner is the deployer", async function () {
-        const fundMeFactory = await ethers.getContractFactory("FundMe");
+    let fundMe;
+    let firstAccount;
+    // let secondAccount;
 
-        const fundMe = await fundMeFactory.deploy(FUND_ME_LIMIT_TIME);
+    beforeEach(async function () {
+        await deployments.fixture(["tag-fundMe"]);
+        firstAccount = (await getNamedAccounts()).firstAccount;
+        // secondAccount = await getNamedAccounts().secondAccount;
+
+        const fundMeDeployment = await deployments.get("FundMe");
+        fundMe = await ethers.getContractAt("FundMe", fundMeDeployment.address);
+    });
+
+    it("test if the owner is the deployer", async function () {
 
         await fundMe.waitForDeployment();
-
-        const [firstAccount] = await ethers.getSigners();
-
-        assert.equal(await fundMe.owner(), firstAccount.address)
+        assert.equal(await fundMe.owner(), firstAccount)
     })
 })
